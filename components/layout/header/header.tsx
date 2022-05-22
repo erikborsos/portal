@@ -85,11 +85,9 @@ const Header = props => {
                 background={useColorModeValue('white.light', 'navbar.dark')}>
                 {navLinks.map(({ name, url }) => {
                   return (
-                    <>
-                      <NextLink href={url} passHref>
-                        <MenuItem as={Link}>{name}</MenuItem>
-                      </NextLink>
-                    </>
+                    <NextLink key={url} href={url} passHref>
+                      <MenuItem as={Link}>{name}</MenuItem>
+                    </NextLink>
                   )
                 })}
               </MenuList>

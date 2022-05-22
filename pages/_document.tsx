@@ -6,10 +6,7 @@ class Doc extends Document {
   render() {
     return (
       <Html lang='de'>
-        <Head>
-          {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-          <title> </title>{' '}
-        </Head>
+        <Head />
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />

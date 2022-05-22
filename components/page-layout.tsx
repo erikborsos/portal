@@ -2,7 +2,7 @@ import { Container, ContainerProps } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import { ReactNode } from 'react'
-import { WEBSITE_NAME } from '../lib/constants'
+import { WEBSITE_NAME } from '../lib/utils/data'
 
 const variants: Variants = {
   hidden: {

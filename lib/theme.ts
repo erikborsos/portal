@@ -33,7 +33,8 @@ const colors = {
 }
 
 const fonts = {
-  heading: `Josefin Sans, ${base.fonts.heading}`
+  body: `M PLUS Rounded 1c, ${base.fonts.body}`,
+  heading: `M PLUS Rounded 1c, ${base.fonts.heading}`
 }
 
 const components = {

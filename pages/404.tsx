@@ -4,7 +4,7 @@ import PageLayout from '../components/page-layout'
 
 const NotFoundPage = () => {
   return (
-    <PageLayout title='404' description='Page Not Found' centerContent>
+    <PageLayout title='404' description='Page Not Found' center>
       <VStack spacing={2} justify='center' h='100vh'>
         <Heading>404 Not found</Heading>
         <Divider />

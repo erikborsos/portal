@@ -4,7 +4,7 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
   global: props => ({
     body: {
-      bg: mode('background.light', 'background.dark')(props)
+      bg: mode('#f0e7db', '#202020')(props)
     }
   })
 }
@@ -22,13 +22,9 @@ const colors = {
     800: '#113458',
     900: '#0d1e2d'
   },
-  background: {
-    dark: '#202023',
-    light: '#f0e7db'
-  },
-  navbar: {
-    dark: '#19192280',
-    light: '#ffffff40'
+  solid: {
+    light: '#e5e2d6',
+    dark: '#272727'
   }
 }
 
@@ -39,12 +35,36 @@ const fonts = {
 
 const components = {
   Button: {
+    baseStyle: {
+      fontWeight: 'normal'
+    }
+  },
+  Link: {
+    baseStyle: {
+      textUnderlineOffset: 3
+    },
     variants: {
-      pill: props => ({
-        ...base.components.Button.variants.outline(props),
-        rounded: 'full',
-        color: 'gray.500'
+      active: props => ({
+        bg: 'brand.' + mode('400', '200')(props),
+        color: mode('white', 'black')(props),
+        cursor: 'default',
+        _hover: {
+          textDecoration: 'none'
+        }
       })
+    }
+  },
+  Heading: {
+    variants: {
+      'section-title': {
+        textDecoration: 'underline',
+        fontSize: 20,
+        textUnderlineOffset: 6,
+        textDecorationColor: '#525252',
+        textDecorationThickness: 4,
+        marginTop: 3,
+        marginBottom: 4
+      }
     }
   }
 }

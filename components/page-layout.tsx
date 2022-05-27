@@ -29,25 +29,24 @@ type PageProps = {
   title: string
   description?: string
   children: ReactNode
-  centerContent?: boolean
+  center?: boolean
 }
 
 const MotionContainer = motion<ContainerProps>(Container)
 
-const PageLayout = ({ title, description, children, centerContent }: PageProps) => {
+const PageLayout = ({ title, description, children, center }: PageProps) => {
   return (
     <>
       <NextSeo title={title + ' | ' + WEBSITE_NAME} description={description} />
       <MotionContainer
         display='flex'
-        maxW='container.lg'
+        maxW='container.md'
         px={{ base: 4, lg: 8 }}
         initial='hidden'
         animate='enter'
         exit='exit'
         variants={variants}
-        {...(centerContent ? { centerContent } : {pt: 24})}
-      >
+        {...(center ? { centerContent: true } : { pt: 24 })}>
         {children}
       </MotionContainer>
     </>

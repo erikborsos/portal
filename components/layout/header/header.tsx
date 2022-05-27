@@ -9,8 +9,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Stack,
-  useColorModeValue
+  Stack
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { navLinks } from '../../../lib/utils/data'
@@ -23,8 +22,9 @@ const LinkItem = ({ href, path, children, ...props }) => {
     <NextLink href={href} passHref scroll={false}>
       <Link
         p={2}
-        bg={active ? 'brand.200' : undefined}
-        color={active ? 'black' : undefined}
+        variant={active ? 'active' : ''}
+        {...props}
+        {...props}
         borderRadius={8}
         {...props}>
         {children}
@@ -42,16 +42,16 @@ const Header = props => {
       top='0'
       w='100%'
       alignContent='center'
-      bg={useColorModeValue('navbar.light', 'navbar.dark')}
+      zIndex='tooltip'
+      bg='navbar'
       css={{ backdropFilter: 'blur(10px)' }}>
       <HStack
         p={2}
-        zIndex='tooltip'
         justify='space-between'
         align='center'
         maxW='container.md'
         w='100%'>
-        <HStack p={2} zIndex='tooltip' align='center'>
+        <HStack p={2} zIndex={99} align='center'>
           <Logo />
           <Stack
             direction={{ base: 'column', md: 'row' }}
@@ -71,7 +71,7 @@ const Header = props => {
             })}
           </Stack>
         </HStack>
-        <HStack p={2} zIndex='tooltip' align='center'>
+        <HStack p={2} zIndex={99} align='center'>
           <ThemeButton />
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id='navbar-menu'>
@@ -81,8 +81,7 @@ const Header = props => {
                 variant='outline'
                 aria-label='Options'
               />
-              <MenuList
-                background={useColorModeValue('white.light', 'navbar.dark')}>
+              <MenuList zIndex='dropdown'>
                 {navLinks.map(({ name, url }) => {
                   return (
                     <NextLink key={url} href={url} passHref>

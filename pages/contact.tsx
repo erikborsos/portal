@@ -2,7 +2,7 @@ import { AtSignIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
-  Container,
+  Container, Flex,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -12,7 +12,7 @@ import {
   InputGroup,
   InputLeftElement,
   SlideFade,
-  Text,
+  Stack,
   Textarea,
   useColorModeValue,
   useToast,
@@ -23,12 +23,13 @@ import { Formik } from 'formik'
 import React, { ReactNode } from 'react'
 import PageLayout from '../components/page-layout'
 import { contactIcons } from '../lib/utils/data'
+import { Textfit } from 'react-textfit';
 
 const ContactForm = () => {
   let toast = useToast()
 
   return (
-    <Box w='23vw'>
+    <Box w='full'>
       <Heading as='h2' variant='section-title' mb={8}>
         Schreib uns!
       </Heading>
@@ -161,7 +162,7 @@ const ContactForm = () => {
 const Map = () => {
   const light = useColorModeValue(true, false)
   return (
-    <Box>
+    <Box w='full'>
       <Heading as='h2' variant='section-title'>
         Komm vorbei!
       </Heading>
@@ -175,8 +176,8 @@ const Map = () => {
               filter: 'grayscale(90%) invert(98%)'
             })}>
         <iframe
-          width='450vw'
-          height='378vh'
+          width='100%'
+          height='360vh'
           id='gmap_canvas'
           src='https://maps.google.com/maps?q=HTL%20Wels&t=&z=15&ie=UTF8&iwloc=&output=embed'
           frameBorder='0'
@@ -199,7 +200,9 @@ const InfoBox = ({
       padding={4}
       borderRadius={16}>
       {icon}
-      {React.isValidElement(text) ? text : <Text>{text}</Text>}
+      <Textfit mode='single'>
+        {text}
+      </Textfit>
     </HStack>
   )
 }
@@ -208,26 +211,38 @@ const ContactPage = () => {
   return (
     <PageLayout title='Contact' center>
       <VStack spacing={2} justify='center' h='100vh'>
-        <Heading as='h1' textAlign='left' w='100%'>
+        <Heading as='h1' textAlign='left' w='100%' mt={{base: '8vh', md: 0}}>
           Kontakt
         </Heading>
-        <SlideFade in={true} delay={0.6}>
-          <HStack
-            spacing={4}
-            bg={useColorModeValue('solid.light', 'solid.dark')}
-            padding={4}
-            borderRadius={16}>
-            <ContactForm />
-            <Map />
-          </HStack>
-        </SlideFade>
-        <SlideFade in={true} delay={1.2}>
-          <HStack>
-            {contactIcons.map(({ icon, text }, index) => (
-              <InfoBox key={index} icon={icon} text={[text]} />
-            ))}
-          </HStack>
-        </SlideFade>
+        <Flex
+          direction='column'
+          gridGap={5}
+          overflow='auto'
+        >
+          <SlideFade in={true} delay={0.6}>
+            <Stack
+              overflow='auto'
+              direction={{ base: 'column', md: 'row' }}
+              display={{ base: 'flex', md: 'flex' }}
+              spacing={4}
+              bg={useColorModeValue('solid.light', 'solid.dark')}
+              padding={4}
+              borderRadius={16}>
+              <ContactForm />
+              <Map />
+            </Stack>
+          </SlideFade>
+          <SlideFade in={true} delay={1.2}>
+            <HStack
+              overflow='auto'
+              width={{ base: '90vw', md:'auto'}}
+            >
+              {contactIcons.map(({ icon, text }, index) => (
+                <InfoBox key={index} icon={icon} text={[text]}/>
+              ))}
+            </HStack>
+          </SlideFade>
+        </Flex>
       </VStack>
     </PageLayout>
   )

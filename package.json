@@ -29,6 +29,7 @@
     "react-hook-form": "^7.31.2",
     "react-i18next": "^11.15.3",
     "react-intersection-observer": "^8.33.1",
+    "react-textfit": "^1.1.1",
     "react-use": "^17.3.2"
   },
   "devDependencies": {

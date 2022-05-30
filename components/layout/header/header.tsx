@@ -14,7 +14,7 @@ import {
 import NextLink from 'next/link'
 import { navLinks } from '../../../lib/utils/data'
 import Logo from './logo'
-import ThemeButton from './theme-button'
+import ThemeButton from './theme-button/theme-button'
 
 const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href
@@ -72,7 +72,7 @@ const Header = props => {
           </Stack>
         </HStack>
         <HStack p={2} zIndex={99} align='center'>
-          <ThemeButton />
+          <ThemeButton aria-label='change to darkmode' />
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id='navbar-menu'>
               <MenuButton

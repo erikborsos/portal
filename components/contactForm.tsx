@@ -1,5 +1,7 @@
+import { AtSignIcon } from '@chakra-ui/icons'
 import {
-  Box, Button,
+  Box,
+  Button,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -10,9 +12,8 @@ import {
   Textarea,
   useToast
 } from '@chakra-ui/react'
-import { Formik } from 'formik'
 import { GoPerson } from '@react-icons/all-files/go/GoPerson'
-import { AtSignIcon } from '@chakra-ui/icons'
+import { Formik } from 'formik'
 import React from 'react'
 
 const ContactForm = () => {
@@ -66,14 +67,14 @@ const ContactForm = () => {
           return errors
         }}>
         {({
-            handleSubmit,
-            errors,
-            handleChange,
-            handleBlur,
-            values,
-            touched,
-            isSubmitting
-          }) => (
+          handleSubmit,
+          errors,
+          handleChange,
+          handleBlur,
+          values,
+          touched,
+          isSubmitting
+        }) => (
           <form onSubmit={handleSubmit}>
             <FormControl
               isRequired={true}

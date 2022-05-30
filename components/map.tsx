@@ -12,18 +12,19 @@ const Map = () => {
       <Container
         {...(light
           ? {
-            filter: 'grayscale(60%)'
-          }
+              filter: 'grayscale(60%)'
+            }
           : {
-            filter: 'grayscale(90%) invert(98%)'
-          })}>
+              filter: 'grayscale(90%) invert(98%)'
+            })}>
         <iframe
           width='100%'
           height='360vh'
           id='gmap_canvas'
           src='https://maps.google.com/maps?q=HTL%20Wels&t=&z=15&ie=UTF8&iwloc=&output=embed'
           frameBorder='0'
-          scrolling='no'/>
+          scrolling='no'
+        />
       </Container>
     </Box>
   )

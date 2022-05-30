@@ -4,6 +4,8 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
   global: props => ({
     body: {
+      transitionProperty: 'all',
+      transitionDuration: '0.45s',
       bg: mode('#f0e7db', '#202020')(props)
     }
   })
@@ -71,7 +73,8 @@ const components = {
 
 const config = {
   initialColorMode: 'dark',
-  useSystemColorMode: true
+  useSystemColorMode: true,
+  disableTransitionOnChange: false
 }
 
 const theme = extendTheme({ config, styles, colors, fonts, components })

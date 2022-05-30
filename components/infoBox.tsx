@@ -1,8 +1,11 @@
-import React, { ReactNode } from 'react'
 import { HStack, useColorModeValue } from '@chakra-ui/react'
+import React, { ReactNode } from 'react'
 import { Textfit } from 'react-textfit'
 
-const InfoBox = ({ icon, text }: {
+const InfoBox = ({
+  icon,
+  text
+}: {
   icon: ReactNode
   text: ReactNode | string
 }) => {
@@ -12,9 +15,7 @@ const InfoBox = ({ icon, text }: {
       padding={4}
       borderRadius={16}>
       {icon}
-      <Textfit mode='single'>
-        {text}
-      </Textfit>
+      <Textfit mode='single'>{text}</Textfit>
     </HStack>
   )
 }

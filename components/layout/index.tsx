@@ -13,11 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header path={router.asPath} />
-      <Box
-        as='main'
-      >
-        {children}
-      </Box>
+      <Box as='main'>{children}</Box>
       <Footer />
     </>
   )

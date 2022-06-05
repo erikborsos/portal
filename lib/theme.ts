@@ -27,6 +27,14 @@ const colors = {
   solid: {
     light: '#e5e2d6',
     dark: '#272727'
+  },
+  solid2: {
+    light: '#d6d6d6',
+    dark: '#323232'
+  },
+  neutral: {
+    light: '#f0f0f0',
+    dark: '#222222'
   }
 }
 
@@ -36,11 +44,6 @@ const fonts = {
 }
 
 const components = {
-  Button: {
-    baseStyle: {
-      fontWeight: 'normal'
-    }
-  },
   Link: {
     baseStyle: {
       textUnderlineOffset: 3

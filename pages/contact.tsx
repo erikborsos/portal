@@ -8,9 +8,9 @@ import {
   VStack
 } from '@chakra-ui/react'
 import React from 'react'
-import ContactForm from '../components/contactForm'
-import InfoBox from '../components/infoBox'
-import Map from '../components/map'
+import ContactForm from '../components/contact/contact-form'
+import InfoBox from '../components/contact/info-box'
+import Map from '../components/contact/map'
 import PageLayout from '../components/page-layout'
 import { contactIcons } from '../lib/utils/data'
 

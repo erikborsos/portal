@@ -20,13 +20,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href
   return (
     <NextLink href={href} passHref scroll={false}>
-      <Link
-        p={2}
-        variant={active ? 'active' : ''}
-        {...props}
-        {...props}
-        borderRadius={8}
-        {...props}>
+      <Link p={2} variant={active ? 'active' : ''} borderRadius={8} {...props}>
         {children}
       </Link>
     </NextLink>

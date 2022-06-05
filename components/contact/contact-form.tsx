@@ -1,7 +1,6 @@
 import { AtSignIcon } from '@chakra-ui/icons'
 import {
   Box,
-  Button,
   FormControl,
   FormErrorMessage,
   FormLabel,
@@ -15,6 +14,7 @@ import {
 import { GoPerson } from '@react-icons/all-files/go/GoPerson'
 import { Formik } from 'formik'
 import React from 'react'
+import CButton from '../c-button'
 
 const ContactForm = () => {
   let toast = useToast()
@@ -136,13 +136,9 @@ const ContactForm = () => {
                 <FormErrorMessage>{errors.message}</FormErrorMessage>
               )}
             </FormControl>
-            <Button
-              isLoading={isSubmitting}
-              type='submit'
-              mt={4}
-              colorScheme='brand'>
+            <CButton isLoading={isSubmitting} type='submit' mt={4}>
               Absenden
-            </Button>
+            </CButton>
           </form>
         )}
       </Formik>

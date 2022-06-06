@@ -16,10 +16,6 @@ export const navLinks = [
     url: '/products'
   },
   {
-    name: 'Sitemap',
-    url: '/sitemap'
-  },
-  {
     name: 'Downloads',
     url: '/downloads'
   },

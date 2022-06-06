@@ -3,7 +3,8 @@ import {
   FormLabel,
   Heading,
   Text,
-  Textarea
+  Textarea,
+  useToast
 } from '@chakra-ui/react'
 import CContainer, { yControllerVariants } from 'components/c-container'
 import React from 'react'
@@ -16,6 +17,7 @@ const SelectRatingBox = (props: {
 }) => {
   const [number, setNumber] = React.useState(0)
   const [comment, setComment] = React.useState('')
+  let toast = useToast()
 
   return (
     <CContainer
@@ -42,9 +44,46 @@ const SelectRatingBox = (props: {
           onChange={e => setComment(e.target.value)}
         />
       </FormControl>
-      <CButton onClick={() => props.setRating(number)}>Absenden</CButton>
+      <CButton
+        onClick={async () => {
+          props.setRating(number)
+          props.setComment(comment)
+          const res = await sendRating({ rating: number, message: comment })
+          if (res.status === 500) {
+            toast({
+              position: 'top-right',
+              title: 'Fehler!',
+              description:
+                'Datenbankverbindung konnte nicht hergestellt werden.',
+              status: 'error',
+              duration: 3000,
+              isClosable: true
+            })
+          } else {
+            toast({
+              position: 'top-right',
+              title: 'Erfolgreich!',
+              description: 'Ihre Bewertung wurde erfolgreich übermittelt.',
+              status: 'success',
+              duration: 3000,
+              isClosable: true
+            })
+          }
+        }}>
+        Absenden
+      </CButton>
     </CContainer>
   )
+}
+
+async function sendRating(values): Promise<Response> {
+  return await fetch('./api/sendRating', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(values)
+  })
 }
 
 export default SelectRatingBox

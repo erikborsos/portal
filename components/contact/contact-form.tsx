@@ -34,16 +34,42 @@ const ContactForm = () => {
           { name, email, message },
           { setSubmitting, resetForm }
         ) => {
-          toast({
-            position: 'top-right',
-            title: 'Nachricht erfolgreich abgesendet!',
-            description:
-              'Wir melden uns in Kürze. Überprüfen Sie ihren Posteingang.',
-            status: 'success',
-            duration: 3000,
-            isClosable: true
-          })
-          resetForm()
+          const res = await sendContactMessage({ name, email, message })
+          if (res.status === 500) {
+            const json: string = await res.json().then(res => res.message)
+            if (json.includes('Unique constraint')) {
+              toast({
+                position: 'top-right',
+                title: 'Nachricht wurde bereits versendet',
+                description:
+                  'Bitte versuchen Sie es mit einer anderen Nachricht!',
+                status: 'warning',
+                duration: 3000,
+                isClosable: true
+              })
+            } else {
+              toast({
+                position: 'top-right',
+                title: 'Fehler!',
+                description:
+                  'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.',
+                status: 'error',
+                duration: 3000,
+                isClosable: true
+              })
+            }
+          } else {
+            toast({
+              position: 'top-right',
+              title: 'Nachricht erfolgreich abgesendet!',
+              description:
+                'Wir melden uns in Kürze. Überprüfen Sie ihren Posteingang.',
+              status: 'success',
+              duration: 3000,
+              isClosable: true
+            })
+            resetForm()
+          }
           setSubmitting(false)
         }}
         validate={values => {
@@ -144,6 +170,16 @@ const ContactForm = () => {
       </Formik>
     </Box>
   )
+}
+
+async function sendContactMessage(values): Promise<Response> {
+  return await fetch('./api/sendContactMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(values)
+  })
 }
 
 export default ContactForm

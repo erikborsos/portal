@@ -49,6 +49,9 @@ const components = {
       textUnderlineOffset: 3
     },
     variants: {
+      colored: props => ({
+        color: 'brand.' + mode('400', '200')(props),
+      }),
       active: props => ({
         bg: 'brand.' + mode('400', '200')(props),
         color: mode('white', 'black')(props),

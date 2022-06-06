@@ -73,3 +73,26 @@ export const contactIcons = [
     )
   }
 ]
+
+export const downloads = [
+  {
+    title: '50 Jahre HTL Interview',
+    href: 'https://cloud.rajot.me/s/JTZ6DAcwFamAy4x/download',
+    thumbnail: '/assets/images/downloads/interview.png'
+  },
+  {
+    title: 'SSH Protokoll',
+    href: '/assets/documents/handout.pdf',
+    thumbnail: '/assets/images/downloads/ssh.png'
+  },
+  {
+    title: 'Lorem Ipsum 1',
+    href: '/assets/documents/lipsum1.txt',
+    thumbnail: '/assets/images/downloads/lipsum1.jpeg'
+  },
+  {
+    title: 'Lorem Ipsum 2',
+    href: '/assets/documents/lipsum2.txt',
+    thumbnail: '/assets/images/downloads/lipsum2.jpeg'
+  }
+]

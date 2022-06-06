@@ -39,14 +39,13 @@ const PageLayout = ({ title, description, children, center }: PageProps) => {
     <>
       <NextSeo title={title + ' | ' + WEBSITE_NAME} description={description} />
       <MotionContainer
-        display='flex'
+        {...(center ? { display: 'flex', centerContent: true } : { pt: 24 })}
         maxW='container.md'
         px={{ base: 4, lg: 8 }}
         initial='hidden'
         animate='enter'
         exit='exit'
-        variants={variants}
-        {...(center ? { centerContent: true } : { pt: 24 })}>
+        variants={variants}>
         {children}
       </MotionContainer>
     </>

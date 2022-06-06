@@ -1,7 +1,7 @@
 import { Heading, SimpleGrid, SlideFade } from '@chakra-ui/react'
 import React from 'react'
-import PageLayout from '../components/page-layout'
 import { ProductGridItem } from '../components/grid-item'
+import PageLayout from '../components/page-layout'
 import { products } from '../lib/utils/data'
 
 const ProductsPage = () => {
@@ -18,8 +18,7 @@ const ProductsPage = () => {
                 key={id}
                 id={id}
                 title={title}
-                thumbnail={thumbnail}
-              >
+                thumbnail={thumbnail}>
                 {text}
               </ProductGridItem>
             )

@@ -50,7 +50,7 @@ const components = {
     },
     variants: {
       colored: props => ({
-        color: 'brand.' + mode('400', '200')(props),
+        color: 'brand.' + mode('400', '200')(props)
       }),
       active: props => ({
         bg: 'brand.' + mode('400', '200')(props),

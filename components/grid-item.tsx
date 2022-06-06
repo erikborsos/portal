@@ -19,7 +19,7 @@ export const GridItem = ({ href, title, thumbnail, ...props }) => (
   </Box>
 )
 
-export const ProductGridItem = ({id, title, thumbnail, ...props }) => (
+export const ProductGridItem = ({ id, title, thumbnail, ...props }) => (
   <Box w='100%' textAlign='center'>
     <NextLink href={`/products/${id}`} passHref scroll={false}>
       <LinkBox cursor='pointer'>
@@ -31,7 +31,9 @@ export const ProductGridItem = ({id, title, thumbnail, ...props }) => (
           loading='lazy'
         />
         <LinkOverlay href={`/products/${id}`}>
-          <Text mt={2} mb={2}>{title}</Text>
+          <Text mt={2} mb={2}>
+            {title}
+          </Text>
         </LinkOverlay>
         <Text fontSize={14}>{props.children}</Text>
       </LinkBox>

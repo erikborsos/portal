@@ -1,5 +1,5 @@
 import { Heading, SimpleGrid, SlideFade } from '@chakra-ui/react'
-import GridItem from 'components/GridItem'
+import { GridItem } from 'components/grid-item'
 import React from 'react'
 import PageLayout from '../components/page-layout'
 import { downloads } from '../lib/utils/data'

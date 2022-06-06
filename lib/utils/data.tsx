@@ -96,3 +96,30 @@ export const downloads = [
     thumbnail: '/assets/images/downloads/lipsum2.jpeg'
   }
 ]
+
+export const products = [
+  {
+    id: 'lipsum',
+    title: 'Lipsum Software',
+    thumbnail: '/assets/images/products/lipsum.jpg',
+    text: 'Wir haben ein Software-Produkt für die Lipsum-Gesellschaft entwickelt.'
+  },
+  {
+    id: 'epic',
+    title: 'EpicGames Webapp',
+    thumbnail: '/assets/images/products/epic.jpg',
+    text: 'Wir haben bei der Webapplikation für EpicGames mitgearbeitet.'
+  },
+  {
+    id: 'flycloud',
+    title: 'FlyCloud Security',
+    thumbnail: '/assets/images/products/flycloud.jpg',
+    text: 'Wir haben die Sicherheitserweiterung für FlyCloud entwickelt.'
+  },
+  {
+    id: 'str',
+    title: 'STR Shop',
+    thumbnail: '/assets/images/products/str.jpg',
+    text: 'Wir haben den Web-Shop für STR entwickelt.'
+  }
+]

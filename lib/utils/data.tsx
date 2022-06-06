@@ -4,7 +4,7 @@ import { AiFillYoutube } from '@react-icons/all-files/ai/AiFillYoutube'
 import { AiOutlineInstagram } from '@react-icons/all-files/ai/AiOutlineInstagram'
 import { IoLogoTiktok } from '@react-icons/all-files/io5/IoLogoTiktok'
 
-export const WEBSITE_NAME = 'Portal'
+export const WEBSITE_NAME = 'RAJ Software'
 
 export const navLinks = [
   {

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.rajot.me
+Host: https://portal.rajot.me
 
 # Sitemaps
-Sitemap: https://www.rajot.me/sitemap.xml
+Sitemap: https://portal.rajot.me/sitemap.xml

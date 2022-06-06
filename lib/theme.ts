@@ -25,11 +25,11 @@ const colors = {
     900: '#0d1e2d'
   },
   solid: {
-    light: '#e5e2d6',
+    light: '#e8dcca',
     dark: '#272727'
   },
   solid2: {
-    light: '#d6d6d6',
+    light: '#dccaae',
     dark: '#323232'
   },
   neutral: {

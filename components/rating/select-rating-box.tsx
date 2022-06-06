@@ -4,6 +4,7 @@ import {
   Heading,
   Text,
   Textarea,
+  useColorModeValue,
   useToast
 } from '@chakra-ui/react'
 import CContainer, { yControllerVariants } from 'components/c-container'
@@ -41,6 +42,7 @@ const SelectRatingBox = (props: {
           resize='none'
           h='13vh'
           name='message'
+          {...(useColorModeValue(true, false) ? { borderColor: 'black' } : {})}
           onChange={e => setComment(e.target.value)}
         />
       </FormControl>

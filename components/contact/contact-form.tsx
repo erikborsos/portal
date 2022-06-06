@@ -9,6 +9,7 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
+  useColorModeValue,
   useToast
 } from '@chakra-ui/react'
 import { GoPerson } from '@react-icons/all-files/go/GoPerson'
@@ -18,6 +19,7 @@ import CButton from '../c-button'
 
 const ContactForm = () => {
   let toast = useToast()
+  const light = useColorModeValue(true, false)
 
   return (
     <Box w='full'>
@@ -117,6 +119,7 @@ const ContactForm = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.name}
+                  {...(light ? { borderColor: 'black' } : {})}
                 />
               </InputGroup>
               {errors.name && touched.name && (
@@ -138,6 +141,7 @@ const ContactForm = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.email}
+                  {...(light ? { borderColor: 'black' } : {})}
                 />
               </InputGroup>
               {errors.email && touched.email && (
@@ -157,6 +161,7 @@ const ContactForm = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.message}
+                {...(light ? { borderColor: 'black' } : {})}
               />
               {errors.message && touched.message && (
                 <FormErrorMessage>{errors.message}</FormErrorMessage>
